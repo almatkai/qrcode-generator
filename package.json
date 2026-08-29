@@ -1,0 +1,145 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "qrcode-generator",
+  "title": "QR Code Generator",
+  "description": "Generate QR codes from text or URLs.",
+  "icon": "command-icon.png",
+  "author": "almatkai",
+  "contributors": [
+    "darmiel",
+    "mathieudutour",
+    "pernielsentikaer",
+    "heytommy",
+    "MatteoGauthier",
+    "seewhy",
+    "ridemountainpig",
+    "dangkhoipro",
+    "stefan.imbesi"
+  ],
+  "license": "MIT",
+  "commands": [
+    {
+      "name": "index",
+      "title": "Generate QR Code",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from text or URL",
+      "mode": "view",
+      "icon": "generate-qr-icon.png",
+      "preferences": [
+        {
+          "name": "primaryAction",
+          "description": "Set the primary action, the other will be secondary",
+          "type": "dropdown",
+          "required": false,
+          "title": "Primary Action",
+          "data": [
+            {
+              "title": "Save to disk",
+              "value": "save"
+            },
+            {
+              "title": "Show inline",
+              "value": "inline"
+            },
+            {
+              "title": "Copy to Clipboard",
+              "value": "copy"
+            }
+          ]
+        },
+        {
+          "name": "defaultFormat",
+          "description": "Set the default format for generated QR codes",
+          "type": "dropdown",
+          "required": false,
+          "title": "Default Format",
+          "data": [
+            {
+              "title": "PNG",
+              "value": "png"
+            },
+            {
+              "title": "SVG",
+              "value": "svg"
+            }
+          ]
+        }
+      ],
+      "platforms": [
+        "macOS",
+        "Windows"
+      ]
+    },
+    {
+      "name": "clipboard",
+      "title": "Generate QR Code from Clipboard",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from clipboard content",
+      "mode": "view",
+      "icon": "clipboard-icon.png",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ]
+    },
+    {
+      "name": "selection",
+      "title": "Generate QR Code from Selection",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from selection content",
+      "mode": "view",
+      "icon": "selection-icon.png",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ]
+    }
+  ],
+  "preferences": [
+    {
+      "name": "defaultColor",
+      "title": "Default QR Color",
+      "description": "Default foreground color (hex) for generated QR codes",
+      "type": "textfield",
+      "required": false,
+      "default": "#000000"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.104.1",
+    "@raycast/utils": "^2.2.2",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "tsx": "^4.22.4",
+    "typescript": "^5.9.3",
+    "@types/qrcode": "^1.5.6"
+  },
+  "scripts": {
+    "build": "ray build -e dist",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test test/*.test.ts"
+  },
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "id": "com.tezbar.qrcode-generator",
+  "version": "0.1.0",
+  "tezbar": {
+    "schemaVersion": 1,
+    "platforms": [
+      "macos",
+      "windows"
+    ],
+    "repository": "https://github.com/almatkai/qrcode-generator",
+    "upstream": {
+      "repository": "https://github.com/raycast/extensions",
+      "path": "extensions/qrcode-generator",
+      "commit": "6734d85992290066fd31a7f5bee3cca3d3545a1a"
+    },
+    "linuxStatus": "coming-soon"
+  }
+}
