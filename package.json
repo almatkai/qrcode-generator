@@ -3,8 +3,9 @@
   "name": "qrcode-generator",
   "title": "QR Code Generator",
   "description": "Generate QR codes from text or URLs.",
-  "icon": "command-icon.png",
+  "icon": "assets/command-icon.png",
   "author": "almatkai",
+  "categories": ["Developer Tools"],
   "contributors": [
     "darmiel",
     "mathieudutour",
@@ -24,7 +25,7 @@
       "subtitle": "QR Code Generator",
       "description": "Generate a QR code from text or URL",
       "mode": "view",
-      "icon": "generate-qr-icon.png",
+      "icon": "assets/generate-qr-icon.png",
       "preferences": [
         {
           "name": "primaryAction",
@@ -76,7 +77,7 @@
       "subtitle": "QR Code Generator",
       "description": "Generate a QR code from clipboard content",
       "mode": "view",
-      "icon": "clipboard-icon.png",
+      "icon": "assets/clipboard-icon.png",
       "platforms": [
         "macOS",
         "Windows"
@@ -88,7 +89,7 @@
       "subtitle": "QR Code Generator",
       "description": "Generate a QR code from selection content",
       "mode": "view",
-      "icon": "selection-icon.png",
+      "icon": "assets/selection-icon.png",
       "platforms": [
         "macOS",
         "Windows"
