@@ -1,0 +1,78 @@
+{
+  "status": "passed-with-documented-platform-and-format-gaps",
+  "date": "2026-10-25",
+  "branch": "feat/native-v2-rust",
+  "sourceRef": "6e983922022d54f38b114fe837ea1232a143cabb",
+  "sdkRef": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+  "hostRef": "ea100cee3f69711de12485ba061950c5fc65258f",
+  "rustTests": 25,
+  "v1Tests": 5,
+  "stable": "1.98.0",
+  "msrv": "1.85.0",
+  "windowsGNU": "check/clippy blocked: absent x86_64-w64-mingw32-gcc for ring",
+  "windowsMSVC": "not-run",
+  "liveDesktopAcceptance": "not-run",
+  "hostPrerequisitesApplied": false,
+  "svgClipboard": "explicit unsupported format limitation",
+  "xerjV2Coverage": "incomplete: frozen schema rejected v2/Cargo.toml; same prefix retained; no mutation/restart/bypass",
+  "isolatedSourceBuild": "Round 2 final production source passed ci/reproduce.sh in an extracted archive under this clone; a new disposable Cargo home fetched the exact SDK revision over HTTPS; all 200 resolved package manifest roots are inside that extraction/Cargo home",
+  "publication": {
+    "commit": false,
+    "push": false,
+    "PR": false,
+    "release": false,
+    "install": false,
+    "cloneDeleted": false
+  },
+  "incident": "See qa/INCIDENT.json: the first oracle run wrote Downloads PNG and three temp PNGs. Those four files and the parent-owned outside-clone incident record were not modified/deleted in Round 2. No rollback is claimed.",
+  "exactV1BytesExceptReadmeSuffix": true,
+  "stagingEmpty": true,
+  "archiveDigest": "41948aac430d0d9de69d197629817a1958285282e91f0e5d0b032f36f33e9d1a",
+  "executableDigest": "f5c27b07ab09dcfbf1fd3b5fefe2ae50448d72d9d6b46cabc2884a55db8d2e5c",
+  "hostPatchDryRun": true,
+  "checks": {
+    "stableTests": true,
+    "msrv185Tests": true,
+    "strictAllTargetClippyStableAnd185": true,
+    "formatCheck": true,
+    "realProductionPipes": true,
+    "extractedNativePipes": true,
+    "schemaPositiveNegative": true,
+    "actualHostInventoryPositiveTamperNegative": true,
+    "actualRendererBeforeAfter": true,
+    "localHTTPMockOnly": true,
+    "sourceTSXOracle": true,
+    "independentPNGandSVGDecode": true,
+    "isolatedSourceReproduction": true,
+    "WindowsNative": false,
+    "liveDesktop": false
+  },
+  "indexedFilesExcludingIndex": 484,
+  "gitVisibleFilesIncludingIndex": 485,
+  "round2": {
+    "status": "material-review-fixes-complete-uncommitted",
+    "preFixReproductions": [
+      "edited_a_b_a: expected Detail but got Form",
+      "completed_shortener_failure: no explicit recovery action"
+    ],
+    "preparedInvalidation": "actual draft edits clear obsolete attempted/retry markers; A/B/A and empty intermediate edit pass; stale prepared UUID rejected; field/refresh do not generate",
+    "generationRecovery": "single-use retry-generation UUID issued only after completed ordinary failure; preserves original Show/Save/Copy intent; canceled in-flight generation/retry stays fenced",
+    "shortenerRecoveryCalls": {
+      "failedProviders": 3,
+      "successfulExplicitRetry": 1,
+      "queuedOrConsumedActionAdditionalCalls": 0
+    },
+    "cancelledRetryCalls": {
+      "initialFailure": 3,
+      "cancelledRetry": 1,
+      "queuedStaleRefreshAdditionalCalls": 0
+    },
+    "clipboardStaging": "one process-global scan+create mutex; incoming bytes included; 16 concurrent workers at 127 existing files admit exactly one; 256 MiB exact/over boundary checked with sparse unknown file; unknown files preserved",
+    "sourceOracleBoundary": "fake require-seam home/temp; explicit import allowlist; real toFile/toFileStream poisoned before TSX load; capture supports Promise/callback; fs producer tripwire; escaped paths/stream sinks reject; genuine toBuffer; zero unexpected filesystem writes",
+    "immutableProvenanceObjectsVerified": 61,
+    "hostSdkSnapshotsAndOriginalIconsUnchanged": true,
+    "nativeZipDeterministicRebuild": true,
+    "sourceFixtureUnchangedSha256": "58c600307e7e526f662ccfe59c296a7b7f51268925badcb0a153474659af86e9",
+    "subdelegation": false
+  }
+}

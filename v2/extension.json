@@ -1,0 +1,130 @@
+{
+  "name": "QR Code Generator",
+  "description": "Generate QR codes from text or URLs.",
+  "preferences": [
+    {
+      "name": "defaultColor",
+      "title": "Default QR Color",
+      "description": "Default foreground color (hex) for generated QR codes",
+      "type": "textfield",
+      "required": false,
+      "default": "#000000"
+    }
+  ],
+  "schemaVersion": 3,
+  "id": "com.tezbar.native.qrcode-generator",
+  "slug": "qrcode-generator",
+  "version": "0.2.0",
+  "runtime": "rust",
+  "execution": "process",
+  "protocolVersion": 1,
+  "repository": "https://github.com/almatkai/qrcode-generator",
+  "author": "almatkai",
+  "icon": "resources/command-icon.png",
+  "platforms": [
+    "macOS",
+    "Windows"
+  ],
+  "replaces": [
+    "com.tezbar.qrcode-generator",
+    "raycast.qrcode-generator"
+  ],
+  "capabilities": [
+    "clipboard.read",
+    "clipboard.writeImage",
+    "selection.read",
+    "shell.open"
+  ],
+  "artifacts": {},
+  "files": {},
+  "commands": [
+    {
+      "name": "index",
+      "title": "Generate QR Code",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from text or URL",
+      "mode": "view",
+      "icon": "resources/generate-qr-icon.png",
+      "preferences": [
+        {
+          "name": "primaryAction",
+          "description": "Set the primary action, the other will be secondary",
+          "type": "dropdown",
+          "required": false,
+          "title": "Primary Action",
+          "data": [
+            {
+              "title": "Save to disk",
+              "value": "save"
+            },
+            {
+              "title": "Show inline",
+              "value": "inline"
+            },
+            {
+              "title": "Copy to Clipboard",
+              "value": "copy"
+            }
+          ]
+        },
+        {
+          "name": "defaultFormat",
+          "description": "Set the default format for generated QR codes",
+          "type": "dropdown",
+          "required": false,
+          "title": "Default Format",
+          "data": [
+            {
+              "title": "PNG",
+              "value": "png"
+            },
+            {
+              "title": "SVG",
+              "value": "svg"
+            }
+          ]
+        }
+      ],
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "runtime": "rust",
+      "timeoutMs": 45000,
+      "refreshMs": null,
+      "concurrency": "serialize"
+    },
+    {
+      "name": "clipboard",
+      "title": "Generate QR Code from Clipboard",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from clipboard content",
+      "mode": "view",
+      "icon": "resources/clipboard-icon.png",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "runtime": "rust",
+      "timeoutMs": 45000,
+      "refreshMs": null,
+      "concurrency": "serialize"
+    },
+    {
+      "name": "selection",
+      "title": "Generate QR Code from Selection",
+      "subtitle": "QR Code Generator",
+      "description": "Generate a QR code from selection content",
+      "mode": "view",
+      "icon": "resources/selection-icon.png",
+      "platforms": [
+        "macOS",
+        "Windows"
+      ],
+      "runtime": "rust",
+      "timeoutMs": 45000,
+      "refreshMs": null,
+      "concurrency": "serialize"
+    }
+  ]
+}

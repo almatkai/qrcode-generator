@@ -1,0 +1,279 @@
+--- a/src/renderer/src/raycast-api/index.tsx
++++ b/src/renderer/src/raycast-api/index.tsx
+@@ -131,7 +131,7 @@
+   const onRunPrimaryAction = (actionId?: string, formValues?: Record<string, unknown>): void => {
+     const id = actionId || primaryAction?.id
+     if (!id) return
+-    void onInvokeAction(id, formValues)
++    void onInvokeAction(id, formValues ?? (actions.find((action) => action.id === id)?.kind === 'submit-form' ? formRuntimeRef.current?.getValues() : undefined))
+   }
+ 
+   const openActions = (ids?: string[]): void => {
+@@ -153,12 +153,13 @@
+         <div className="flex h-full min-h-0 flex-col">
+           {kind === 'form' ? (
+             <FormRuntime
++              key={props.sessionId}
+               ref={formRuntimeRef}
+               root={root}
+               title={title}
+               onBack={onSurfaceBack}
+               onSubmitForm={onSubmitForm}
+-              onChangeField={(actionId, value) => onInvokeAction(actionId, { value })}
++              onChangeField={(actionId, value, values) => onInvokeAction(actionId, { ...values, value })}
+               onInvokeAction={onInvokeAction}
+               onOpenActions={openActions}
+               actionNotice={actionNotice}
+@@ -206,8 +207,8 @@
+               onExecute={(action) => {
+                 setShowActions(false)
+                 setActionFilterIds(null)
+-                if (kind === 'form' && action.id === submitAction?.id) {
+-                  onSubmitForm(formRuntimeRef.current?.getValues() ?? {})
++                if (kind === 'form' && action.kind === 'submit-form') {
++                  void onInvokeAction(action.id, formRuntimeRef.current?.getValues() ?? {})
+                   return
+                 }
+                 void onInvokeAction(action.id)
+--- a/src/renderer/src/raycast-api/detail-runtime.tsx
++++ b/src/renderer/src/raycast-api/detail-runtime.tsx
+@@ -553,7 +553,7 @@
+           </button>
+           <div className="text-[12px] font-semibold text-ink-2">{title}</div>
+           <div className="ml-auto flex items-center gap-1">
+-            <button type="button" className="btn btn-ghost" onClick={onRunPrimaryAction}>
++            <button type="button" className="btn btn-ghost" onClick={() => onRunPrimaryAction()}>
+               Enter
+             </button>
+             <button type="button" className="btn btn-ghost" onClick={onOpenActions}>
+--- a/src/renderer/src/raycast-api/form-runtime.tsx
++++ b/src/renderer/src/raycast-api/form-runtime.tsx
+@@ -169,6 +169,18 @@
+   return next
+ }
+ 
++// Opt-in versioned draft reconciliation for asynchronous controlled forms.
++export function reconcileVersionedFormValues(
++  fields: FormField[], previous: Record<string, unknown>, previousFields: FormField[],
++  serverRevision: number, localRevisions: Record<string, number>
++): Record<string, unknown> {
++  const next = reconcileFormValues(fields, previous, previousFields)
++  for (const field of fields) {
++    if ((localRevisions[field.id] ?? 0) > serverRevision && Object.prototype.hasOwnProperty.call(previous, field.id)) next[field.id] = previous[field.id]
++  }
++  return next
++}
++
+ type FormWheelCoordinates = { hue: number; saturation: number; value: number; alpha: number }
+ 
+ export function reconcileFormWheelDraft(
+@@ -209,7 +221,7 @@
+   title: string
+   onBack: () => void
+   onSubmitForm: (values: Record<string, unknown>) => void
+-  onChangeField: (actionId: string, value: unknown) => Promise<void> | void
++  onChangeField: (actionId: string, value: unknown, values: Record<string, unknown>) => Promise<void> | void
+   onInvokeAction: (actionId: string, values?: Record<string, unknown>) => Promise<void> | void
+   onOpenActions: () => void
+   actionNotice?: { message: string; tone: 'success' | 'error' } | null
+@@ -225,6 +237,12 @@
+     [items]
+   )
+   const [values, setValues] = useState<Record<string, unknown>>(() => reconcileFormValues(fields))
++  const valuesRef = useRef(values)
++  const localRevisions = useRef<Record<string, number>>({})
++  const draftRevision = useRef(Number(root.props?.__tezbarDraftRevision) || 0)
++  const versioned = typeof root.props?.__tezbarDraftRevision === 'number'
++  const getDraft = (): Record<string, unknown> => versioned
++    ? { ...valuesRef.current, __tezbarDraftRevision: draftRevision.current } : valuesRef.current
+   const nativeColorWheel = useMemo(() => parseNativeColorWheel(root.props?.nativeColorWheel), [root.props?.nativeColorWheel])
+   const localWheelCoordinates = useRef<FormWheelCoordinates | null>(null)
+   const filePickerOpenRef = useRef(false)
+@@ -238,13 +256,18 @@
+       ? previousServerForm.current.fields : undefined
+     const wheelDraft = nativeColorWheel ? localWheelCoordinates.current : null
+     previousServerForm.current = { title, fields }
+-    setValues((previous) => ({
+-      ...reconcileFormValues(fields, previousFields ? previous : undefined, previousFields),
+-      ...wheelDraft,
+-    }))
+-  }, [fields, nativeColorWheel, title])
++    const serverRevision = Number(root.props?.__tezbarDraftRevision) || 0
++    draftRevision.current = Math.max(draftRevision.current, serverRevision)
++    const next = {
++      ...(versioned ? reconcileVersionedFormValues(fields, valuesRef.current, previousFields ?? [], serverRevision, localRevisions.current)
++        : reconcileFormValues(fields, previousFields ? valuesRef.current : undefined, previousFields)),
++      ...wheelDraft,
++    }
++    valuesRef.current = next
++    setValues(next)
++  }, [fields, nativeColorWheel, title, root.props?.__tezbarDraftRevision, versioned])
+ 
+-  useImperativeHandle(ref, () => ({ getValues: () => values }), [values])
++  useImperativeHandle(ref, () => ({ getValues: getDraft }))
+ 
+   const releaseFilePickerBlurSuppression = useCallback((): void => {
+     if (!filePickerOpenRef.current) return
+@@ -277,8 +300,14 @@
+   }, [releaseFilePickerBlurSuppression])
+ 
+   const updateValue = (field: FormField, value: unknown): void => {
+-    setValues((previous) => ({ ...previous, [field.id]: value }))
+-    if (field.actionId) void onChangeField(field.actionId, value)
++    if (versioned) {
++      draftRevision.current += 1
++      localRevisions.current[field.id] = draftRevision.current
++    }
++    const next = { ...valuesRef.current, [field.id]: value }
++    valuesRef.current = next
++    setValues(next)
++    if (field.actionId) void onChangeField(field.actionId, value, getDraft())
+   }
+ 
+   return (
+@@ -286,7 +315,7 @@
+       className="flex h-full min-h-0 flex-col"
+       onSubmit={(event) => {
+         event.preventDefault()
+-        onSubmitForm(values)
++        onSubmitForm(getDraft())
+       }}
+       onKeyDownCapture={(event) => {
+         if (
+@@ -298,7 +327,7 @@
+           return
+         }
+         event.preventDefault()
+-        onSubmitForm(values)
++        onSubmitForm(getDraft())
+       }}
+     >
+       <div className="glass-card mb-2 shrink-0 px-4 py-3">
+--- a/src-tauri/src/native_core/extensions/registry.rs
++++ b/src-tauri/src/native_core/extensions/registry.rs
+@@ -14,6 +14,7 @@
+     id: String,
+     slug: String,
+     path: PathBuf,
++    resource_path: PathBuf,
+     manifest: Value,
+     data_dir: PathBuf,
+ }
+@@ -73,9 +74,10 @@
+             };
+             let Ok(slug) = slug(name) else { continue };
+             let native = name.starts_with("com.tezbar.native.");
++            let mut resource_path = path.clone();
+             let mut manifest = if native {
+                 match super::process_install::resolve(ctx, name) {
+-                    Ok(package) => package.manifest,
++                    Ok(package) => { resource_path = package.dir.clone(); package.manifest },
+                     Err(error) => {
+                         // A damaged canonical directory is NEVER a Raycast package.
+                         let mut value = read_json(&path.join("package.json"))
+@@ -108,6 +110,7 @@
+                 id,
+                 slug,
+                 path,
++                resource_path,
+                 manifest,
+                 data_dir: ctx.paths.data_dir.clone(),
+             });
+@@ -245,8 +248,8 @@
+         return None;
+     }
+     let mut candidates = vec![
+-        extension.path.join(relative),
+-        extension.path.join("assets").join(relative),
++        extension.resource_path.join(relative),
++        extension.resource_path.join("assets").join(relative),
+     ];
+     if extension.id.starts_with("com.tezbar.native.") {
+         if let Some(packages) = extension.path.parent() {
+@@ -309,8 +312,8 @@
+         return None;
+     }
+     let mut candidates = vec![
+-        extension.path.join(relative),
+-        extension.path.join("assets").join(relative),
++        extension.resource_path.join(relative),
++        extension.resource_path.join("assets").join(relative),
+     ];
+     if extension.id.starts_with("com.tezbar.native.") {
+         if let Some(packages) = extension.path.parent() {
+@@ -574,6 +577,7 @@
+     let extension = Installed {
+         id: id.into(),
+         slug: slug(id)?,
++        resource_path: path.clone(),
+         path,
+         manifest: Value::Null,
+         data_dir: ctx.paths.data_dir.clone(),
+--- a/src/renderer/ExtensionRuntimeView.tsx
++++ b/src/renderer/ExtensionRuntimeView.tsx
+@@ -416,6 +416,11 @@
+   )
+ }
+ 
++export function isStaleDraftResponse(latest: number, response: unknown): boolean {
++  const revision = (response as { root?: { props?: { __tezbarDraftRevision?: unknown } } })?.root?.props?.__tezbarDraftRevision
++  return typeof revision === 'number' && revision < latest
++}
++
+ export default function ExtensionRuntimeView({
+   initial,
+   onBack,
+@@ -429,6 +434,8 @@
+   const searchRequestSeq = useRef(0)
+   const currentSession = useRef<string | null>(null)
+   const sessionOwner = `${state.sessionId}:${state.generation ?? ''}`
++  const latestDraft = useRef({ owner: sessionOwner, revision: 0 })
++  if (latestDraft.current.owner !== sessionOwner) latestDraft.current = { owner: sessionOwner, revision: 0 }
+   currentSession.current = sessionOwner
+   useEffect(
+     () => () => {
+@@ -509,7 +516,7 @@
+       refresh: async () => {
+         try {
+           const result = await window.tezbar.extensionRefreshSession({ sessionId: state.sessionId })
+-          if (cancelled || (result.ok && result.mode === 'unchanged')) return
++          if (cancelled || isStaleDraftResponse(latestDraft.current.revision, result) || (result.ok && result.mode === 'unchanged')) return
+           if (!result.ok) {
+             setError(result.message)
+             return
+@@ -540,7 +547,7 @@
+         sessionId: state.sessionId,
+         searchText,
+       })
+-      if (requestSeq !== searchRequestSeq.current || currentSession.current !== sessionOwner) return
++      if (requestSeq !== searchRequestSeq.current || currentSession.current !== sessionOwner || isStaleDraftResponse(latestDraft.current.revision, result)) return
+ 
+       if (!result.ok) {
+         console.error('[RuntimeView] Search failed:', result.message)
+@@ -574,7 +581,7 @@
+ 
+   const handleLoadMore = useCallback(async () => {
+     const result = await window.tezbar.extensionLoadMore({ sessionId: state.sessionId })
+-    if (currentSession.current !== sessionOwner) return
++    if (currentSession.current !== sessionOwner || isStaleDraftResponse(latestDraft.current.revision, result)) return
+     if (result.ok && result.mode === 'unchanged') return
+     if (!result.ok) {
+       setError(result.message)
+@@ -626,6 +633,8 @@
+             onSearchTextChanged={handleSearchTextChanged}
+             onLoadMore={handleLoadMore}
+             onInvokeAction={async (actionId, formValues) => {
++              const revision = formValues?.__tezbarDraftRevision
++              if (typeof revision === 'number' && Number.isSafeInteger(revision)) latestDraft.current.revision = Math.max(latestDraft.current.revision, revision)
+               setError(null)
+               const invokedAction = state.actions.find((action) => action.id === actionId)
+               if (isFormSurface && invokedAction?.kind === 'submit-form') {
+@@ -637,7 +646,7 @@
+                 formValues,
+               })
+ 
+-              if (currentSession.current !== sessionOwner) return
++              if (currentSession.current !== sessionOwner || isStaleDraftResponse(latestDraft.current.revision, result)) return
+               if (!result.ok) {
+                 setError(result.message)
+                 showActionFailure(result.message)

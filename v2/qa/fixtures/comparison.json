@@ -1,0 +1,74 @@
+[
+  {
+    "index": 0,
+    "pngSha256": "2c7ebf4c4a0438a64e2d4d86b8c35545f65f5456370e84ea5e4154d85c9afe40",
+    "rustSize": 21,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 21,
+    "svgSha256": "5896f59b1d22b442e82c613f24431b199b83bdb74115dbea4df131e2242869bb"
+  },
+  {
+    "index": 1,
+    "pngSha256": "af8c8b96647e5e59cdd9cb7146054630a19e95eaaf051523b7b0aff099dbed24",
+    "rustSize": 21,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 21,
+    "svgSha256": "d4d1d9fa31316d7485e4bac1fb1a0fb796423142e551da426e25077cfe5b1a90"
+  },
+  {
+    "index": 2,
+    "pngSha256": "6cdbc713139f64a0d77e450b0875de602d4d684a5fb8b01a306c32b911d83d63",
+    "rustSize": 21,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 21,
+    "svgSha256": "94da2abfd5a712e0a8a4e48b79ebf3894c6a57670aed1943764b06847ef6e949"
+  },
+  {
+    "index": 3,
+    "pngSha256": "7261bf878b6a1a81320a94e1b3621c53608d1b6864ecac9a7fee7cb9b9f9226b",
+    "rustSize": 25,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 25,
+    "svgSha256": "a80db423f6dfe54025990c82b273875909e7e08fedb87d0b4ab98f4eca0641bb"
+  },
+  {
+    "index": 4,
+    "pngSha256": "771b0cbf6830d94178a34af191474a89ea7191b6c0bd75d81a94d0af7c2a0101",
+    "rustSize": 25,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 25,
+    "svgSha256": "a9fc5da5f1938f65b4b21d68bfc94e68f09b35898d35a1497900a78fc418dc5c"
+  },
+  {
+    "index": 5,
+    "pngSha256": "d44bc7a4e61108d97e5d8e38c44034e8e68a4a7fdc5c9eec7a9fc4ea5b5d5ca8",
+    "rustSize": 49,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 49,
+    "svgSha256": "a3349e09353260af8ec120a1d7133cc44e1908f19e920d5260087a78e4b338ab"
+  },
+  {
+    "index": 6,
+    "pngSha256": "ff943ffa13e113911204449b0c4b2751a07f9de93312c2ad2c4b5ca2fed05ae8",
+    "rustSize": 49,
+    "sameMatrix": false,
+    "samePixels": false,
+    "sourceSize": 49,
+    "svgSha256": "d7995dc0287e8f138744cb8374f136db0c46a26bce4089af293143c96fb04111"
+  },
+  {
+    "index": 7,
+    "pngSha256": "b1e9f6cdebeaa5acff81f15c9286ed5247d877286c4613434ef1cce4a6790ab5",
+    "rustSize": 53,
+    "sameMatrix": true,
+    "samePixels": true,
+    "sourceSize": 53,
+    "svgSha256": "8b7894dfc54220071770fb0cdb2f77c63a2ae5c2ce1b83f468c804b4fd5a47b0"
+  }
+]

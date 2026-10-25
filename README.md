@@ -28,3 +28,5 @@ pnpm build
 ## Credits
 
 Adapted for Tezbar from Raycast's MIT-licensed `qrcode-generator` extension at upstream commit `6734d85992290066fd31a7f5bee3cca3d3545a1a`. Original author `Melvynx` and contributors remain credited in `package.json`.
+
+Native Rust V2: see [v2/README.md](v2/README.md).
