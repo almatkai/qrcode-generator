@@ -1,0 +1,52 @@
+# Reviewable workflow TEMPLATE. Intentionally under v2/ci; not an active root workflow.
+name: QR native acceptance gates
+on: [workflow_dispatch]
+jobs:
+  native:
+    strategy:
+      matrix:
+        include:
+          - os: macos-14
+            target: aarch64-apple-darwin
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - if: runner.os == 'macOS'
+        run: test "$(uname -m)" = arm64 # select an approved ARM64 runner label; fail rather than emulate
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt,clippy
+          targets: ${{ matrix.target }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: cargo fmt --manifest-path v2/Cargo.toml --check
+      - run: cargo test --locked --all-targets --manifest-path v2/Cargo.toml
+      - run: cargo clippy --locked --all-targets --manifest-path v2/Cargo.toml -- -D warnings
+      - run: cargo build --locked --release --target ${{ matrix.target }} --manifest-path v2/Cargo.toml
+      - if: runner.os == 'macOS'
+        run: python3 v2/qa/process-smoke.py v2/target/aarch64-apple-darwin/release/tezbar-qrcode-generator
+      - if: runner.os == 'Windows'
+        shell: pwsh
+        run: ./v2/qa/windows-smoke.ps1 -Binary ./v2/target/x86_64-pc-windows-msvc/release/tezbar-qrcode-generator.exe
+      - if: runner.os == 'macOS'
+        run: python3 v2/tools/package.py v2/target/aarch64-apple-darwin/release/tezbar-qrcode-generator --target aarch64-apple-darwin
+      - if: runner.os == 'Windows'
+        run: python v2/tools/package.py v2/target/x86_64-pc-windows-msvc/release/tezbar-qrcode-generator.exe --target x86_64-pc-windows-msvc
+  msrv:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@1.85.0
+        with:
+          components: rustfmt,clippy
+      - run: cargo test --locked --all-targets --manifest-path v2/Cargo.toml
+      - run: cargo clippy --locked --all-targets --manifest-path v2/Cargo.toml -- -D warnings
+# Still mandatory manual gates: actual Tezbar with generic prerequisites, real PNG clipboard,
+# selection focus/permissions, Downloads resolution/permissions and SVG save on BOTH OSes.
+# Neither workflow success nor SDK --self-test establishes those desktop acceptance gates.

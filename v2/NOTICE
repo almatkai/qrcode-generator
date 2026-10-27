@@ -1,0 +1,21 @@
+QR Code Generator native V2
+
+Port of almatkai/qrcode-generator at 6e983922022d54f38b114fe837ea1232a143cabb.
+Original Raycast extension by Melvynx. Contributors: darmiel, mathieudutour,
+pernielsentikaer, heytommy, MatteoGauthier, seewhy, ridemountainpig, dangkhoipro,
+stefan.imbesi. The actual immutable upstream manifest is licenses/upstream-package.json.
+Raycast upstream: raycast/extensions commit 6734d85992290066fd31a7f5bee3cca3d3545a1a,
+extensions/qrcode-generator. MIT grant retained in LICENSE and licenses/Raycast-LICENSE.
+Own V1 LICENSE bytes (literal backslash-n in that source) are preserved unmodified
+in licenses/Own-LICENSE-original. No new upstream copyright claim is asserted.
+
+Four original upstream PNGs are included byte-for-byte in resources. No generated
+or converted substitute is used. See PROVENANCE.json and README.md for hashes.
+
+Independent tezbar-extension-sdk 0.1.1, immutable Git revision
+e955911f0bf5b558f9d3eb5183df0adc95c22af2: Apache-2.0. The actual SDK LICENSE and
+NOTICE are retained in licenses/SDK-LICENSE and licenses/SDK-NOTICE.
+Real resolved crate grants/notices and SPDX declarations are inventoried in
+licenses/dependencies.json and copied under licenses/dependencies. Dev and
+other-target notices are included conservatively. No Node runtime or JavaScript
+QR encoder is included in the executable package.

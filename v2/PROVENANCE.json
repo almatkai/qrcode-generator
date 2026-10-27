@@ -1,0 +1,415 @@
+{
+  "refs": {
+    "own": "6e983922022d54f38b114fe837ea1232a143cabb",
+    "host": "ea100cee3f69711de12485ba061950c5fc65258f",
+    "sdk": "e955911f0bf5b558f9d3eb5183df0adc95c22af2"
+  },
+  "objects": [
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "AGENTS.md",
+      "gitBlob": "2289d67977f886a1a70a5b54821d51c4996154eb",
+      "sha256": "bb3a7fd197b7a458320afa8edc62095bcd0a3d2c3bb8d3804079437a3fefb916"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "docs/EXTERNAL_RUST_EXTENSIONS.md",
+      "gitBlob": "49bbbb4f0a1e0d2773caa8575d6eec58c477685e",
+      "sha256": "56da4ce632e1362ad56c380fa6d706a1f455ea44b67cd473b0b3eb216a9d5610"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "schemas/extension-v3.schema.json",
+      "gitBlob": "d22369213af9f6e7d8e2b40eae9ca5f2091dc742",
+      "sha256": "6f42f0316aa88097703496e828b11afcc7caecf8477fa7502df903c3ad2a8048"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src-tauri/src/native_core/extensions/process_host.rs",
+      "gitBlob": "707ee4c60ed2dc02ce016f19afa4f61d8ac0b011",
+      "sha256": "daf45815d76762323c6c1320c88ed24dfe28160a60bb4974b8073e3f17a3b982"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src-tauri/src/native_core/extensions/process_install.rs",
+      "gitBlob": "40790a4d63ba7c856c0b15d313536941a2b2bb5f",
+      "sha256": "1fc130d58703f80db0c5255d31a1e31b9f4e1a67876f98f86ceae7ede6363ee7"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src-tauri/src/native_core/extensions/registry.rs",
+      "gitBlob": "0ae0827f90fb337eb5fd00e1d596c1452915bc03",
+      "sha256": "05dd5d9c5fafbac3034e9ba5e101e345a5d3bb658a49d22696e59ea924530e66"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src-tauri/src/native_core/extensions/launcher.rs",
+      "gitBlob": "e98d1eb35a689a381302752ccbebb3b896ae1815",
+      "sha256": "5f76c73ef2a945dfeb9967784aae1f13286ec178ad8c77a225ae7c150cdd6133"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src-tauri/src/native_core/platform.rs",
+      "gitBlob": "18f1539aafc664b22dac374e39addfa29548213c",
+      "sha256": "33e6b7ec5b305ee3ffb857985d0483e54891998ff2a51c10f12695b80a1953e6"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/main/extensionWorker/clipboard.ts",
+      "gitBlob": "a523adf93a8128486ff0c8e3a2e2363639c2a125",
+      "sha256": "b8ff17943545b6f56e7e8fdbdd419ffd53354de0b8ec9634766063264e0e9c6b"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/src/raycast-api/index.tsx",
+      "gitBlob": "06172c12681568b3dbbf2bf4ac98f7135490df68",
+      "sha256": "7fc8413a72b92e8f88b0939cd93f91624018fe0765baa1e71b38b86f8cc77a64"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/src/raycast-api/form-runtime.tsx",
+      "gitBlob": "b6590ffb55a6c248a97b54db7f9bce0cbefa4590",
+      "sha256": "8568d0ac5be03eea97d0def38067dbbbdce5ae97c36a51024857ef20dce299a6"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/src/raycast-api/detail-runtime.tsx",
+      "gitBlob": "219517c635d708fef6e50b2a7be05146f75e5ea7",
+      "sha256": "32eecb50891e0f282bd3d78d8a38193ec24540bf70c3fdc8e43a1d368c97d54c"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/src/raycast-api/detail-runtime.test.ts",
+      "gitBlob": "ce4466bf367dc0783805f4c09d5d9ecb9887dbb7",
+      "sha256": "94acca3393a3636f7188a2ceac4a5e0429c2a0bc3433b02163602bdbe38beef4"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/src/raycast-api/form-runtime.test.ts",
+      "gitBlob": "cbb77a3a62e264e9e59e0d3eef8b071d14fe5117",
+      "sha256": "3c449509be65d1ffc8949a11835fadeb6300b7d647898309b5abc5b2e94af112"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/ui/Markdown.tsx",
+      "gitBlob": "8841268595775dcfe4b739a7d54de601f191f748",
+      "sha256": "d205312b35293a433d5398e4edf1dcc96662cacd34036e8ee3ec503f65eee2de"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/shared/extensionRuntime.ts",
+      "gitBlob": "2c0f347d84f6ca3da42518a6af5650159413f916",
+      "sha256": "47a290032a9967e2dee5142030b4ef8cfc5237a79521aa535f8a12d8c16deda4"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "Cargo.toml",
+      "gitBlob": "6818bed893658b3f922ce3f67268203fe97a04cd",
+      "sha256": "f3f6c5a49f92dced2ff7b8ea9c5942d826a8a6c3cdade67f62003ded86b506dd"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "SDK_API.md",
+      "gitBlob": "679ea21194c9f9cc86e4f4bdc25af288212a04e4",
+      "sha256": "73945c65d763a82ee1bd64b2f30418f8aaec2e75966d71d7b774e7f7e40f098e"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "HOST_INTEGRATION.md",
+      "gitBlob": "240b49d48f789c4f37abab9fdc653c03ccacd6ff",
+      "sha256": "88e6ca0c1090bcdf5d5501583e52e3eb7b0a369f4fea17ce4b01616c2f69d9a8"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "PROTOCOL.md",
+      "gitBlob": "b833d6e72a1dd76ce2e46f26ec4cd40bd7ea3a18",
+      "sha256": "0bc474c2e79e6e3f46ad2d577f83144ad69bd87cb17b74600a17178bcc257371"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "LICENSE",
+      "gitBlob": "c22db4c5658fa074557976ac119021cdaa567132",
+      "sha256": "0ed6b1b2760294d4aaaa45be38e166fcc0168e1dd5190423c096fcbe1c94afbf"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "NOTICE",
+      "gitBlob": "034e832da671561e68f76321b677c3a8cf443020",
+      "sha256": "aa04ab6115cfc2e2172b0613013611a59dc487c70f3e2dfbd2f135326d703c74"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "src/lib.rs",
+      "gitBlob": "93b6bf751dc4c776a37f48fc3427196a2418536f",
+      "sha256": "7ffb2da74cfcf91f428453cf90594baa79b21251b7df77756348e0acda79cd16"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "src/context.rs",
+      "gitBlob": "731ffe98f7d5078e597250df00e85e01c429e93c",
+      "sha256": "9d8498bf3799690703c0a4e70fed2c9356850cc0c4e35370104fd09898c09efa"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "src/runner.rs",
+      "gitBlob": "056f7e9459594ac96f6d3c0f22c328bac96cfd99",
+      "sha256": "975350f717db0a3bf9cac11e9efd733719d2148544c2e38d82758c92a0a88053"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "src/storage.rs",
+      "gitBlob": "c120e7c5ec2c90701261c0361c6b30aefb3b175c",
+      "sha256": "6cbb7018c8e090fb801afd6410fc1275d18cec195d7d1b59d7138dce5d4f999a"
+    },
+    {
+      "kind": "sdk",
+      "ref": "e955911f0bf5b558f9d3eb5183df0adc95c22af2",
+      "path": "src/stdio.rs",
+      "gitBlob": "030159e343c4bf269642b83c21a7ae17f233e6a7",
+      "sha256": "787a82df188796d492b520bbdb37efee41f7e7214f3aa7e167bd468074be25c9"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": ".gitignore",
+      "sha256": "b027adcbb6131ef49be335e9a699657351ca3d5bb2b474379634d1714f5a585b"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": ".prettierrc",
+      "sha256": "af858765de11954366be23467b95bae5e1a86818411c6723df7542cea9ffd521"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "CHANGELOG.md",
+      "sha256": "d6e9d2b827cbbf4d33a2dc22f79d6b205bcae184922a484c7cde7d79faba5c8b"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "LICENSE",
+      "sha256": "1d7dbdbcd4fe14dfa08334fab20bffad23c1290f195792a3a4420dadf9912f81"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "README.md",
+      "sha256": "0f3289ece2570f02ab160d8acd0c9d5b1428c190df45b5570e3a5a94b71104e6"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "assets/clipboard-icon.png",
+      "sha256": "6088d80fcc0029dbd836581fcc53717e3db6a4a496c3c58e0b6d198f7c3d9946"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "assets/command-icon.png",
+      "sha256": "528b0186ce805553de1040a7fbaf39e9ed340d10a80bac89f53b309417491936"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "assets/generate-qr-icon.png",
+      "sha256": "5c6dd2cd886df20d0f2d9127af4b8d0d35647552670acbbf17138f01b2355be9"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "assets/selection-icon.png",
+      "sha256": "57e4dc96dbfd272e1ed989b36309ec19423c0914a9857eded97e5210d36c0c5c"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "eslint.config.mjs",
+      "sha256": "be2989fe08a37b6e3b848f07b42ee15d92f3b8b812355bc0a28b2f0765884a99"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "metadata/qrcode-generator-1.png",
+      "sha256": "bf56051573d79b7784ceb735dad9ff6ee372a9d3320034c8adfa8d2374ddafd7"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "metadata/qrcode-generator-2.png",
+      "sha256": "43a9dd5a34826a6bdc865aa59953f4be09a11345dda067880b9cef90d371cc6c"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "metadata/qrcode-generator-3.png",
+      "sha256": "7c9e138fda123af9308f5c8f1161cba858c23fe7139c5db8c5d458abe9e97653"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "package-lock.json",
+      "sha256": "6f99f737812e996833f14871337c1c5f7c22ee7896db765fa4c4c5be9be4e4b6"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "package.json",
+      "sha256": "6a3db6c66c8c4212b99f67decf875e21e1a3d217aa7cddfcd6e1c434a9275550"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "raycast-env.d.ts",
+      "sha256": "b0e631e7c98a8252e92e98bbc9b72e76b847fc8e91a83989a46adee51386a8f7"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/clipboard.tsx",
+      "sha256": "2c590428b1a1107827c8ef19c9e94a2d6c56882556bff839972c655d921800bb"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/common.tsx",
+      "sha256": "beda01142adc87e3489595dfce8a3a9d3da675f4152074c21194e0fb0a79cea3"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/config.ts",
+      "sha256": "07a71ad513bb87de4aefced4f2cd0dc84c0dafdb90bc96a1d134d8c8682a0789"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/index.tsx",
+      "sha256": "d1f25154b85f9632dc1deed557d12b614c77bbb4a249a7fa792a57638d9a1d99"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/selection.tsx",
+      "sha256": "f6357d9833d49fde69ed90b78668567a233572918d58e3a086b1a6026497b444"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/types.ts",
+      "sha256": "3d017e188034068a36724dd7236ea1d3092b0f252b199cbb7da406949dad96b0"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/url.ts",
+      "sha256": "e486cfe4cf3549fd774d750d119039cf1c9d12e8f643c1beca323895b72c65b9"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "src/utils.tsx",
+      "sha256": "55d64e1555163307c65bbf87f52da7c564327fbb71e20cf6bd1de23adea084ab"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "test/qrcode.test.ts",
+      "sha256": "00bf93979540f6b6cb9953eb94fad5d1afb722cf0781cba44bede3c48a1e7188"
+    },
+    {
+      "kind": "own",
+      "ref": "6e983922022d54f38b114fe837ea1232a143cabb",
+      "path": "tsconfig.json",
+      "sha256": "719eead66c8ecb6e303254030a71e59d6ae94538b94d0edf7a15786195d7fd63"
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "LICENSE",
+      "gitBlob": "c22db4c5658fa074557976ac119021cdaa567132",
+      "sha256": "0ed6b1b2760294d4aaaa45be38e166fcc0168e1dd5190423c096fcbe1c94afbf"
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "resources/selection-icon.png",
+      "sha256": "57e4dc96dbfd272e1ed989b36309ec19423c0914a9857eded97e5210d36c0c5c",
+      "bytes": 9322
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "resources/clipboard-icon.png",
+      "sha256": "6088d80fcc0029dbd836581fcc53717e3db6a4a496c3c58e0b6d198f7c3d9946",
+      "bytes": 11103
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "resources/command-icon.png",
+      "sha256": "528b0186ce805553de1040a7fbaf39e9ed340d10a80bac89f53b309417491936",
+      "bytes": 184611
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "resources/generate-qr-icon.png",
+      "sha256": "5c6dd2cd886df20d0f2d9127af4b8d0d35647552670acbbf17138f01b2355be9",
+      "bytes": 13260
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "licenses/upstream-package.json",
+      "sha256": "6cf065417a38ae3ec5655169da456716f222aeef7f3cb1c133c74b66188dbf20",
+      "bytes": 3079
+    },
+    {
+      "kind": "immutable-upstream",
+      "ref": "6734d85992290066fd31a7f5bee3cca3d3545a1a",
+      "path": "licenses/Raycast-LICENSE",
+      "sha256": "7f727f8b20cdd0e65f84e70b9cac2fce337dcecee4dc88955eb012ea27f02755",
+      "bytes": 1064
+    },
+    {
+      "kind": "host",
+      "ref": "ea100cee3f69711de12485ba061950c5fc65258f",
+      "path": "src/renderer/ExtensionRuntimeView.tsx",
+      "gitBlob": "e43a39425078b1c14c25981a9bae02a43b5749ac",
+      "sha256": "c8378d1a1cc91cf622f81dc1bd88ed986ea2e9c396f7ff497e649171f573c5e8"
+    }
+  ],
+  "xerj": {
+    "prefix": "ax-aa65b27c48f0",
+    "state": "/Users/almat/.local/share/xerj/workspaces/ax-aa65b27c48f0",
+    "initial": "generation 1, 11/11 code files, 7 junk/non-source skipped; later coverage recorded in VALIDATION.md"
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "description": "First source-oracle run allowed qrcode.toFile through the real filesystem; corrected before further QA. No live clipboard, shell open or network was invoked. Files left intact under no-deletion instruction. Existing-file preimage was not captured; cannot prove qrcode-hello.png was absent before run.",
+  "files": [
+    {
+      "file": "/Users/almat/Downloads/qrcode-hello.png",
+      "bytes": 2144,
+      "mtime": "2026-10-25T16:25:51.402Z",
+      "sha256": "c25f075f5b9f525acde026c14a8be6243f644b5b84c48b08760ae35f13ef535c"
+    },
+    {
+      "file": "/var/folders/7v/_tm0w_59693180wdf89zpwmh0000gn/T/qrcode-1792945551558.png",
+      "bytes": 2144,
+      "mtime": "2026-10-25T16:25:51.567Z",
+      "sha256": "c25f075f5b9f525acde026c14a8be6243f644b5b84c48b08760ae35f13ef535c"
+    },
+    {
+      "file": "/var/folders/7v/_tm0w_59693180wdf89zpwmh0000gn/T/qrcode-1792945551738.png",
+      "bytes": 2567,
+      "mtime": "2026-10-25T16:25:51.757Z",
+      "sha256": "9233dd8bf53d73adfb43236868af83f9d9d68812ddc76ab8f920c8b4bb70d343"
+    },
+    {
+      "file": "/var/folders/7v/_tm0w_59693180wdf89zpwmh0000gn/T/qrcode-1792945551837.png",
+      "bytes": 2542,
+      "mtime": "2026-10-25T16:25:51.849Z",
+      "sha256": "237beb011141a9e8fb9c675dbc86e4c9d835e9ded8bb7280cd7e12a265be3bd2"
+    }
+  ]
+}
